@@ -16,18 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.http import HttpResponse
+from django.conf.urls.static import static
 from django.conf import settings
-
+from django.contrib.auth.views import LoginView
 #from classroom.views import index
 
 
 urlpatterns = [
   path('admin/', admin.site.urls),
   path('',include('classroom.urls')),
+  path('login/', LoginView,{'template_name': 'registration/login.html'})
  
     #path('',index,name ="index"),
     #path('class/',include("classroom.urls")), 
 
-]
+] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+
 
 

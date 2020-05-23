@@ -1,0 +1,9 @@
+ <!-- {%for i in classes %}
+   <h1>{{i.lecture_name}}</h1>
+    <h1>adqweqeqw</h1>
+    <h1>{{classes.lecture_name.lecture_date}}</h1>
+    <h1>  {{classes}}    </h1>
+
+    <h3>   hello from schedule    </h3>
+   {%endfor%} 
+ -->

@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     "ads",
     "events",
     "student",
+    "image",
+    "bootstrap4",
+    "ta"
 ]
 
 MIDDLEWARE = [
@@ -109,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'tr'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Istanbul'
 
@@ -126,5 +129,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/image/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR,'/images')
+MEDIA_ROOT = os.path.join(BASE_DIR,'image')

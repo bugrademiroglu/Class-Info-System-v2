@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import TA
 
-# Register your models here.
+@admin.register(TA)
+class TAAdmin(admin.ModelAdmin):
+
+    class Meta:
+        model = TA

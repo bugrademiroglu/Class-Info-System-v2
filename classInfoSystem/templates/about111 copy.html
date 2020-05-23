@@ -1,0 +1,131 @@
+
+{% load static %}
+{% load bootstrap4 %}
+
+
+<!doctype html>
+<html lang="en">
+  <style>
+
+   
+    #bg img {
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      bottom: 0; 
+      margin: auto; 
+      min-width: 50%;
+      min-height: 50%;
+    }
+        
+        </style>
+  <head>
+    
+    <link rel="stylesheet" type="text/css" href="app.css ">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+     
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>Class Info</title>
+
+    
+  </head>
+  <body>
+   
+    <div class="container-fluid">
+      <div class="row">
+        <a href="{% url 'classroom:schedule' classes   %}" class="btn btn-warning" style="margin-left: 50px; background-color:gold;">Show Class Schedule</a> <!-- alınan keye göre  url-->
+        <a href="{% url 'classroom:information' classes   %}" class="btn btn-warning" style=" margin-left: 800px; background-color:gold;">Show Class Information</a>
+    
+      </div>
+    </div>
+
+
+      
+    {%for i in student%}
+    <h3>{{i.studentfullname}}</h3> <!--UZUYOR MU DENE.. -->
+    
+    <h3>{{classes.lecture_name}</h3> 
+    {%if classes.lecture_name == i.lecture_name %}  <!--IF YAPISI -->
+    <h3>{{classes.lecture_name}}</h3>
+     <h3>---------------------------</h3>
+    {%else%}
+    <h3>NO</h3>
+    <h3>---------------------------</h3>
+    {% endif %}
+    {%endfor%}    
+   <!-- <body onclick="myFunctionClick()"></body>
+    <body ondblclick="myFunctionDoubleClick()"></body> -->
+    <div id="bg">
+      <img src="https://www.mef.edu.tr/images/logo_tr_color.png" alt="">
+    </div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        {% for j in ads %}
+        <div class="carousel-item active">
+              <h3>1</h3>
+              <img src = "/image/{{j.image_ads}}">
+        </div>
+        <div class="carousel-item">
+        
+            <h3>2</h3>
+            <img src = "/image/{{j.image_ads}}">
+        </div>
+        <div class="carousel-item">
+              <h3>3</h3>
+              <img src ="/image/{{j.image_ads}}">
+        </div>
+      </div>
+    </div>
+    
+      {%endfor%}
+    
+
+     <!-- <a href="{% url 'classroom:schedule' classes   %}"> <!-- image link elde ettik-->
+    <!--   <img src="/{{j.image_ads}}"> <!-- image gösterimi hatalı ,tekrar bak, dir ver.-->
+      
+
+      
+      <h3 style="padding-bottom: 10px;
+      padding-top: 40%;
+      text-align: center;
+      
+      bottom: 0px">Current Lecture: {{classroom.lecture_name}}</h3>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      
+        $('#myCarousel').on('slide.bs.carousel', function () {
+          interval: 500
+          })
+
+    </script>
+
+
+    <!--Mef sitesi yerine currentduruma gidecek yada baska bişeye artık o herneyse
+    <script>
+      function myFunctionClick() {
+      location.replace("http://www.mef.edu.tr") 
+    }
+</script>-->
+
+
+      <!--Mef sitesi yerine schedula gidecek yada baska bişeye artık o herneyse
+  <script>
+      function myFunctionDoubleClick() {
+      location.replace("http://localhost:8000/class/{{CLASS.NAME}}/schedule") 
+    }
+</script>-->
+
+
+
+      
+
+
+  </body>
+</html>
+ 
